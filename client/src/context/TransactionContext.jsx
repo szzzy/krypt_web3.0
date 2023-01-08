@@ -43,7 +43,7 @@ export const TransactionProvider = ({ children }) => {
 				amount: parseInt(transaction.amount._hex) / (10 ** 18)
 			}))
 
-			console.log(structedTransactions);
+			//console.log(structedTransactions);
 			setTransactions(structedTransactions);
 		} catch (error) {
 
@@ -62,7 +62,7 @@ export const TransactionProvider = ({ children }) => {
 			} else {
 				console.log('No accounts found');
 			}
-			console.log(accounts);
+			//console.log(accounts);
 		} catch (error) {
 			console.log(error);
 
@@ -90,6 +90,7 @@ export const TransactionProvider = ({ children }) => {
 			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 
 			setCurrentAccount(accounts[0]);
+			window.location.reload();
 		} catch (error) {
 			console.log(error);
 
@@ -128,7 +129,7 @@ export const TransactionProvider = ({ children }) => {
 
 			setTransactionCount(transactionCount.toNumber());
 
-			window.reload();//reload the page as soon as the transaction is done
+			window.location.reload();//reload the page as soon as the transaction is done
 		} catch (error) {
 			console.log(error);
 
